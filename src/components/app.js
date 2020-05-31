@@ -10,14 +10,14 @@ var News = function(){
     var url = "http://newsapi.org/v2/top-headlines?country=ua&apiKey=a1c27f854baf41838defd4d085422e3c";
     const [getRequest, setRequest] = useState([]);
 
-     useEffect(() =>{
+    useEffect(() =>{
         fetch(url)
             .then(responce => responce.json())
             .then(data1 =>{
-                setRequest(data1.articles);
-            })
+              setRequest(data1.articles);
+            });  
     });
-    
+        
     return (
       <Fragment>
         <img className="image-main" src={love} />
