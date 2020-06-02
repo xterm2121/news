@@ -1,4 +1,28 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
 .image-main{
     width: 1550px;
     height: 500px;
+}
+.card{
+    margin: 10px, 5px, 10px, 0px;
+    width: 450px;
+    height: 400px;
+}
+.img{
+    width: 350px;
+    height: 200px;
+}
+.title{
+    padding: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font: 0.6em sans-serif;
+}
+.cbody{
+    padding: 3px;
+    width: auto inherit;
+    height: 400px;
 }

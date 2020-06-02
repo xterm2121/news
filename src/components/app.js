@@ -1,13 +1,17 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import { CardColumns ,Card } from 'react-bootstrap';
+
 
 import love from './img/love_1920x1080.jpg';
 
+import './css/medie-queries.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/style.css';
+// var api_key1 ="5a6690b4d4a04bd4bb0a8b463891495a";
+var api_key ="a1c27f854baf41838defd4d085422e3c";
+// var api_key2 ="07cbc7b02e004230afc48712bca6c54c";
 
 var News = function(){
-    var url = "http://newsapi.org/v2/top-headlines?country=ua&apiKey=a1c27f854baf41838defd4d085422e3c";
+
+    var url = "http://newsapi.org/v2/top-headlines?country=ua&apiKey="+api_key;
     const [getRequest, setRequest] = useState([]);
 
     useEffect(() =>{
@@ -19,21 +23,24 @@ var News = function(){
     });
         
     return (
+      
       <Fragment>
-        <img className="image-main" src={love} />
-          <div className="container">
-            <CardColumns>
+           <div className="container">
+            <img className="image-main" src={love} alt=""/>
+            <div className="card-columns">
+                    
               {getRequest.map(req => (
-                <Card>
-                  <Card.Img className="img" variant="top" src={req.urlToImage} />
-                  <Card.Body>
-                    <Card.Title className="title"><a href={req.url}>{req.title}</a></Card.Title>
-                  </Card.Body>
-                </Card>
-              ))}                
-            </CardColumns>
-          </div>
+                <div className="card">
+                  <img className="card-img-top" src={`${req.urlToImage}`} alt=""/>
+                  <div className="card-body">
+                    <p className="card-text"><a href={req.url}>{req.title}</a></p>
+                  </div>
+              </div>            
+              ))}
+            </div>
+           </div>
       </Fragment>
+          
     );
 }
 export {News};
